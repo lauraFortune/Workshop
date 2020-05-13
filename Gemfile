@@ -4,7 +4,7 @@ ruby "2.6.6"
 
 gem "mini_magick"
 
-gem 'devise', '4.6.0'
+gem 'devise', '4.7.1'
 
 gem 'font-awesome-rails'
 # Use jquery as the JavaScript library
