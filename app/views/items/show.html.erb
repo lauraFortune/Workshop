@@ -1,0 +1,23 @@
+<div class ="body-container">
+  
+  <div style ="padding-top: 8%" class="card">
+    <h3><%= @item.title %></h3>
+    <h3><%= @item.brand %></h3>
+    <div class="underline"></div>
+    <h5>€<%=  @item.price %></h5>
+    <div class="underline"></div> 
+    <p><%= @item.description %></p><p>  <%= @item.category %></p>
+    <a href="/cart/<%= @item.id %>" class="button">Add To Cart</a>
+  </div>
+  
+  <div class="card">
+    <div class="card-img"><%=  image_tag(@item.image_url) %> </div> 
+  </div>
+  
+</div>
+
+<% if user_signed_in? && current_user.admin %>
+  <%= link_to 'Edit', edit_item_path(@item), :class => "buttonWhite"%> 
+<% end %>
+         
+<%= link_to 'Back', items_path %>

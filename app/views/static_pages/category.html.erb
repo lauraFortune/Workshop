@@ -1,0 +1,50 @@
+<p id=""><%= notice %></p>
+
+<% if @items.length == 0  %><br/>
+    <h4>Sorry!  There are currently no products in this category</h4>
+<% else %>
+    <div id="itemCounter"><!--P tag will be placed in here by--></div>
+<% end %>
+    
+<div class="card-container">
+    <% @items.each do |item| %>
+        <div class="card">
+            <h3><%= item.title %></h3>
+            <%= link_to (image_tag item.image_url, :class => "card-img"), item %>
+            <div class="card-body"></div>
+            <p><%=  item.description %></p>
+            <p>
+               Price <%= number_to_currency(item.price, :unit => "€") %><br>
+               Brand: <%= item.brand %><br>
+               Category: <%= item.category %>
+            </p><br>
+            
+            <p>
+                <a href="/cart/<%= item.id %>" class="buttonWhite">Add To Cart</a>
+             
+                <% if user_signed_in? && current_user.admin %>
+                    <%= link_to 'Edit', edit_item_path(item), :class =>"linkn", :role=>"link" %>
+                    <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link", :role=>"link" %>
+                <% end %>
+            </p>
+        </div> <!-- end card -->
+    <% end %>
+</div><br><!-- end card container -->
+
+<% if user_signed_in? && current_user.admin %>
+  <div class="main">
+    <%= link_to 'Add Category', new_category_path, :class =>"button", :role=>"cats"  %>
+  </div>
+<% end %>
+
+<script>
+/* Keeps count of Items created */
+function setItemCount() {
+  var items = $('.card');
+  var numberOfItems = items.length;
+  var phoneCounter = document.getElementById("itemCounter");
+  phoneCounter.innerHTML = "<p>There are currently " + numberOfItems + " items in this category</p>";
+}
+
+setItemCount();
+</script>

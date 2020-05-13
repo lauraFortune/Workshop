@@ -1,0 +1,45 @@
+<div class ="main">
+<h2>My Account</h2>
+<div class ="main_container">
+
+  <a><%= link_to 'Log Out', destroy_user_session_path, :method => :delete, :class => "underline" %></a>
+  
+  <div class="card-container">
+    <p class="theading">Order History</p>
+    <p id="notice"><%= notice %></p>
+    <div class = "wrap">
+      <table>
+        <thead>
+          <tr>
+            <td>Order Id</td>
+            <td>User</td>
+            <td>Status</td>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td>#<%= order.id %></td>
+              <td><%= order.user.email %></td>
+              <td><%= order.status %></td>
+              <td><%= link_to 'View', order, :class => "button"%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      
+      <div class="account">
+        <a><h5>Account Details</h5></a>
+        <div class="line"></div><br>
+        <a href="#"><%= current_user.email %></a><br>
+        <%= link_to 'Update Profile', edit_user_registration_path, :class => "button" %>
+      </div>
+      
+    </div> <!--end table-->
+  </div><!-- end tables class -->
+</div><!-- end main container -->
+
+<div class="main"><h4>Latest Buys</h4>
+  <div class="card-container"><%=render 'layouts/popular'%></div>
+</div>

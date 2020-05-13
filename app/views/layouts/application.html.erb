@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <title> <%= yield (:title) %> | Workshop </title>
+      <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <%=render 'shared/nav'%>  
+      <%=render 'shared/alerts'%> 
+      <%= yield %>
+  </body>
+  
+</html>
+
+
+<script>
+    /*######### NAV BAR SLIDE ##############*/
+    $('.open').on('click',function(e){
+        e.preventDefault();
+        $(this).addClass('hidden');
+        $('.close').removeClass('hidden');
+        $('nav').addClass('slide');
+        
+    });
+    
+    $('.close').on('click',function(e){
+      
+        e.preventDefault();
+        $(this).addClass('hidden');
+        $('.open').removeClass('hidden');
+        $('nav').removeClass('slide');
+        
+    });
+    
+    $("nav a").click(function() {
+        var s = $(this).attr('href');
+        $('html,body').animate({scrollTop: $(s).offset().top}, 200, "swing");
+        return false;
+    });
+    /*######### END NAV BAR SLIDE ##############*/ 
+  
+</script>

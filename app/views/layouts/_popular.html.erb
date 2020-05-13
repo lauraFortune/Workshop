@@ -1,0 +1,16 @@
+<% @items.limit(6).order(:id).each do |item| %>
+  <div class="card">
+      <div class="image">
+        <%= link_to (image_tag item.image_url, :style => "height:100px"), item %>
+      </div>
+      <div class="title">
+        <%= link_to item.title, item %>
+      </div>
+      <div class="description">
+        <%= item.description %>
+      </div>  
+      <div class="price">
+         <%= number_to_currency(item.price, :unit => "€") %>
+      </div>
+  </div>
+<% end %>

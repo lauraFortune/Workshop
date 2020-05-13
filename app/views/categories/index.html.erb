@@ -1,0 +1,43 @@
+<% provide(:title, "Create Shop") %>
+
+<p id="notice"><%= notice %></p>
+<h2 class="welcome">Categories</h2>
+<div id="itemCounter">
+  <!--P tag will be placed in here by-->
+</div>
+
+<div class="card-container">
+  <% @categories.each do |category| %>
+    <div class="card">
+      <h3><%= category.title %></h3>
+      <%= link_to (image_tag category.image_url, :class => "card-img"), category %>
+      <div class="card-body"></div>
+      <%= category.description %><br>
+      <p>
+        <%= link_to 'Show', category, :class => "buttonWhite", :role => "link" %>
+        <%= link_to 'Edit', edit_category_path(category) , :class => "buttonWhite", :role => "link"%>
+        <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } , :class => "buttonWhite", :role => "link"%>
+      </p>
+    </div>
+  <% end %>
+</div><br>
+
+<div class="main">
+  <%= link_to 'New Category', new_category_path, :class => "button" %>
+</div>
+
+
+<script>
+
+/* Keeps count of Items created */
+function setItemCount() {
+  var items = $('.card');
+  var numberOfPhones = items.length;
+  var phoneCounter = document.getElementById("itemCounter");
+  phoneCounter.innerHTML = "<p>There are currently " + numberOfPhones + " categories</p>";
+ 
+}
+
+setItemCount();
+
+</script>

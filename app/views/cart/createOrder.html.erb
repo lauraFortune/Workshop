@@ -1,0 +1,61 @@
+<% provide(:title, "Checkout")%>
+
+<div>
+    <h6>You have just placed an order</h6><br>
+    <h2>Thank you</h2>
+    
+    <div class="cart">
+        <table>
+            <% @orders.limit(1).order(id: :desc).each do |order| %> <!--@oders = instance var but .orders = rails equivalent of sql statement  - orders desc will be last order created(the newest!) and limit says we want just one order-->
+                <tr>
+                    <td>The Order you just placed is number: <%= order.id %></td> <!-- order.id comes from controller -->
+                </tr>
+            <% end %>
+        </table>
+        
+        <table>
+            <% @total = 0 %>
+            <div><td>Product</td><td>Quantity</td><td>Price</td><td>Total</td></div>
+            <% @orderitems.each do |id, quantity| %>   <!--show user everything related to the order item-->
+                <tr>
+                    <% item = Orderitem.find_by_id(id) %>
+                    <td><%= item.title %></td>
+                    <td><%= item.quantity %></td>
+                    <td><%= number_to_currency(item.price, :unit =>"€") %></td>
+                    <td><%= number_to_currency(item.quantity * item.price, :unit =>"€") %></td>
+                </tr>
+                <% linetotal =(item.quantity * item.price) %>
+                <% @total += linetotal %>
+            <% end %>
+            <tr>
+                <td></td>       
+                <td></td>
+                <td></td>    
+                <td>Subtotal: &euro; <%= @total %> </td>
+            </tr>
+            <tr>
+                <% shipping = 25 %>
+                <% @grandtotal = shipping + @total %>
+                <td>Shipping &euro;25</td><!--if want to have dynamic shipping info need to create shipping table -->
+                <td></td><td></td>
+                <td>Total: &euro; <%= @grandtotal %> </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div style="padding: 2%">
+    <a href="/paid/<%= @order.id %>" class="links">Pay For Me!</a>
+</div>
+ 
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+  <input type="hidden" name="business" value="<insert paypal buyer account here>">
+  <input type="hidden" name="cmd" value="_xclick">
+  <input type="hidden" name="item_name" value="Workshop Order Number <%=  @order.id %>">
+  <input type="hidden" name="currency_code" value="EUR">
+  <input type="hidden" name="amount" value="<%= @grandtotal %>">
+  <input type="hidden" name="return" value="<insert site url here>/paid/<%= @order.id %>">
+  <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="Buy Now">
+  <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
+</form>
+   

@@ -1,0 +1,50 @@
+<div><h2>Were you looking for something?</h2></div><br><br>
+
+<% provide(:title, "Create Shop") %>
+<p id="notice"><%= notice %></p>
+<h2 class="welcome"></h2>
+<div id="itemCounter">
+  <!--P tag will be placed in here by-->
+</div>
+  
+<div class="card-container">
+  <% @items.each do |item| %>
+    <div class="card">
+       <h3><%= item.title %></h3>
+       <%= link_to (image_tag item.image_url, :class => "card-img"), item %>
+       <div class="card-body"></div>
+       <p><%=  item.description %></p>
+       <p>Price <%= number_to_currency(item.price, :unit => "€") %><br>
+           Brand: <%= item.brand %><br>
+           Category: <%= item.category %>
+       </p><br>
+       
+       <p>
+         <%= link_to 'Show',  item, :class => "link", :role => "link" %>
+         <a href="/cart/<%= item.id %>" class="link">Add To Cart</a>
+ 
+         <% if session[:login] == 1 %>
+           <%= link_to 'Edit',  edit_item_path(item), :class => "link", :role => "link" %>
+           <%= link_to 'Destroy',  item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "link", :role => "link" %>
+         <% end %>
+       </p>
+       
+     </div>
+  <% end %>
+</div><br>
+
+
+<script>
+
+ /* Keeps count of Items created */
+ function setItemCount() {
+   var items = $('.card');
+   var numberOfPhones = items.length;
+   var phoneCounter = document.getElementById("itemCounter");
+   phoneCounter.innerHTML = "<p>Your search result has returned '" + numberOfPhones + "'</p>";
+  
+ }
+ 
+ setItemCount();
+
+</script>

@@ -1,0 +1,7 @@
+<div class= "form" id="search">
+    <%= form_tag("/search", :method =>"post") do %>  <!-- go to a url and permorm the method here(method is post) method is rendering what user has inputted to search-->
+        <%= label_tag(:searchbox, "Search for What....") %> <!-- can call whatever want (doesn't have to be searchbox) Searchbox is the label-->
+        <%= text_field_tag(:searchbox) %><!-- here am giving id of searchbox -->
+        <%= submit_tag(:search) %> <!-- search button -->
+    <% end %>
+</div>

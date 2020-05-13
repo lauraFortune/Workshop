@@ -1,0 +1,28 @@
+<h2 class="underline">All Orders</h2>
+<div class = "cart">
+  <table>
+    <thead>
+      <tr>
+        <td>Order Id</td>
+        <td>User</td>
+        <td>Status</td>
+        <th></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.user.email %></td>
+          <td><%= order.status %></td>
+          <td><%= link_to 'Show', order, :class => "button" %></td>
+          <td><%= link_to 'Edit', edit_order_path(order), :class => "button" %></td>
+          <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table><br>
+  
+  <%= link_to 'New Order', new_order_path %>
+</div>

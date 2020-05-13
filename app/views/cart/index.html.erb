@@ -1,0 +1,58 @@
+
+<% if @cart.empty? %> <!--if the cart is empty (the instance var @cart comes from cart controller )-->
+    <p>You have not added any items yet</p> 
+<% end %>
+<h2>Your cart</h2>
+<div class = "cart">
+    <table>
+        <% total = 0 %>
+        <% count = 0 %><!--items in cart -->
+        
+        <div><td></td><td>Product</td><td></td><td></td><td></td><td>Price</td><td>Quantity</td><td>Total</td></div>
+        <% @cart.each do |id, quantity| %>
+            <% item = Item.find_by_id(id) %>
+            <tr>
+                <td><a href="/cart/remove/<%= item.id %>" class="link" id="remove"><strong>&#10005;</strong></a></td>
+                <td>
+                    <div>
+                        <%= link_to (image_tag item.image_url, :class => "card-img"), item %>
+                         <!--    link_to (image_tag item.image_url, :style =>"height:40px"), item -->
+                    </div>
+                </td>
+                <td><%= link_to item.title, item %></td>
+                <td></td>
+                <td></td>
+                <td><%= number_to_currency(item.price, :unit =>"€") %></td>
+                <td><a href="/cart/increase/<%= item.id %>" class="link"><strong>&plus;</strong></a><span class="line"><%= quantity %></span><a href="/cart/decrease/<%= item.id %>" class="link"><strong>&minus;</span></a></td>
+                <td><%= number_to_currency(quantity * item.price, :unit =>"€") %></td>
+            </tr>
+            <% total += quantity * item.price %>
+            <% count += quantity %>
+        <% end %>
+      
+       <div><td></td><td></td><td></td><td></td><td></td><td></td><td>Subtotal:</td><td><%= number_to_currency(total, :unit => "€") %></td></div>
+      
+    </table>
+    
+    Count:<%= count %>
+    <div class="totals">
+        <a>Shipping & taxes calculated at checkout</a>
+        <a href="/checkout" class="button">Checkout</a>
+    </div>
+    
+    <div class="main">
+        <a href="/cart/clear" class="buttonWhite">Clear Cart</a>
+        <a href="/items" class="buttonWhite">Continue Shopping</a>
+    </div
+    
+</div>
+
+
+
+
+
+
+
+
+
+

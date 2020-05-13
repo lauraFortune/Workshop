@@ -1,0 +1,438 @@
+/*
+ *= require font-awesome
+ */
+
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+
+@import "font-awesome";
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT');
+
+html,body{
+  height:100%;
+}
+
+#text{
+    text-align: left;
+}
+
+.main {
+    padding: 5% 10%;
+    text-align: center;
+}
+
+.main .title {
+  padding-bottom: 5%;
+  
+}
+
+h1 {
+    padding-top: 1%;
+}
+
+#showImages{
+    width: 10%;
+}
+body{
+  font-size: 15px;
+  font:400 15px;
+  font-family: 'Old Standard TT', serif;
+  color:#444;
+  margin: 0 auto;
+  text-align: center;
+}
+
+nav{
+  margin-top: 0;
+  text-align: left;
+  background: #e3eeee;
+  position: fixed;
+  font-size: 12px;
+  color: black;
+  width: 300px;
+  height: 100%;
+  right: -300px;
+  padding: 50px 30px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  z-index: 99;
+  overflow: auto;
+}
+
+#admin{
+  overflow: auto;
+}
+
+.line{
+  border: .5px solid #444;
+}
+
+.slide{
+  left: 0px;
+}
+
+a{
+  color: #444;
+  text-decoration:none;
+  outline:0px
+}
+
+nav a{
+  display:block;
+  font-size:20px;
+  padding-bottom:20px;
+
+}
+
+nav a:hover{
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+}
+
+nav p{
+  padding-top: 35%;
+}
+
+.links {
+     font-size: 24px;
+}   
+
+.shop {
+     font-size: 24px;
+}
+
+nav .cats {
+  margin-top: 5%;
+  font-size: 17px;
+  padding-left: 12%;
+}
+
+nav .sublinks {
+  margin-top:12%;
+  font-size: 17px;
+  padding-left: 12%;
+}
+
+.open:hover,.close:hover{
+ color: black;
+ text-decoration: none;
+ opacity:1
+}
+
+.hidden {
+  opacity:0;
+  visibility:hidden;
+  cursor-events:none;
+}
+
+.header {
+  font-size:60px;
+  color: #444;
+  background-color: transparent;
+  display: flex;
+  margin-left: 20vw;
+  padding-top: 1%;
+  padding-bottom: .7%;
+}
+
+
+/*image gallery shop page*/
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 0%;
+}
+
+.card-container .card {
+    border: solid 1px #f2f2f2;
+    margin: 5%;
+}
+
+.card-container .card .card-body {
+    padding: 10px;
+}
+
+.card-container .card img.card-img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+ 
+
+/*form */
+.form {
+    
+    width: 50%;
+    padding: 2%;
+    margin-left: 25%;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#search{
+    width: 100%;
+    margin-left: 0;
+}
+
+input[type=submit] #search{
+   background-color: #eddddd;
+}
+
+/*text box*/ 
+input[type=text], select {
+    width: 80%;
+    padding: 8px 20px;
+    margin: 2% 10%;
+    background-color: #fcf8f8;
+    border: 1px solid black;
+}
+/* end text box*/
+
+/*submit button */
+input[type=submit] {
+    width: 80%;
+    padding: 8px 20px;
+    margin: 5% 10%;
+    background-color: #eddddd;
+}
+
+input[type=submit]:hover {
+    background-color: white;
+}
+/*end submit button */
+
+.box {
+    width: 400px;
+    padding: 8px 20px;
+    margin: 1% 10%;
+    background-color: #fcf8f8;
+}
+.devise_submit {
+    width: 500px;
+    margin: 0 auto;
+}
+/*end form */
+
+/*cart*/
+.cart {
+    width: 100%;
+    font-size: 1em;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+    
+.cart table{
+ width: 50%;
+ align-self: center;
+ margin-top: 2%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    transform: 1.5; text-decoration: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+    text-align: left;
+    width: 1000px;
+}
+
+th,td {
+    border-top: 1px solid #e9e4de;
+    border-bottom: 1px solid #e9e4de;
+}
+
+td {
+    padding: 20px 10px;
+}
+
+td span{
+  margin: 0 15%;
+}
+
+td strong{
+  font-size: 1.5em;
+}
+
+tbody tr:hover {
+    background: #f9fcfc;
+}
+
+table .line {
+  font-size: 1em;
+  padding: 12% 12% 4% 12%;
+}
+
+table .card-img {
+  width:120px;
+  height:140px;
+}
+
+.subtotal{
+  border-right:20%;
+}
+
+.underline{
+    margin: 0 auto;
+    border: 1.5px solid black;
+    width: 5%;
+    padding-bottom: 1.5%;
+    padding-top: 2em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-bottom: 5%;
+}
+
+.theading{
+    padding-top: 5%;
+    margin-bottom: 0;
+}
+
+.button{
+  margin: 1% 4% 1% 4%;
+  background: none;
+  padding: .7rem 1.8rem;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  list-style-type: none;
+  background: #eddddd;
+  transition: background 3s ease;
+}
+
+.button:hover{
+    color: black;
+    background-color: white;
+}
+
+.buttonWhite{
+    margin: 1% 4% 1% 4%;
+    background: none;
+    padding: .7rem 1.8rem;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    list-style-type: none;
+    background: transparent;
+    border: .5px solid black;
+    transition: background 3s ease;
+}
+
+  
+.buttonWhite:hover{
+    color: black;
+    background-color: #eddddd;
+    border: none;
+}
+
+.account {
+    margin: 0 5% 0 5%;
+    width: 20%;
+    text-align: left;
+}
+
+.totals {
+    margin: 1% 5%2% 5%;
+    width: 70%;
+    text-align: right;
+}
+
+.wrap{
+    width: 100%;
+    font-size: 1em;
+    display:flex;
+    justify-content: center;
+}
+
+.account a{
+    margin: 14% 0;
+}
+
+/*########### Body Wrap ###############*/
+.body-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 0%;
+    flex-direction: row-reverse;
+}
+    
+.body-container .card{
+    padding: 4%;
+}
+/*########### End Body Wrap ###############*/
+
+/*########### Header ###############*/
+.open, .close {
+    margin-top: 2%;
+    margin-right: 20%;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9;
+    font-size: 38px;
+    line-height: 1px;
+    opacity: 0.6;
+    transition: all 0.1s;
+}
+
+#header{
+    padding-top: 1%;
+    font-size: calc(1.3rem + 1.2vw);
+    color: #313338;
+    text-decoration: none;
+    cursor: pointer;
+    text-decoration: none;
+    list-style-type: none;
+    margin-right: 40%;
+}
+
+#header:hover{
+    color: black;
+}
+
+.buttonCart{
+  padding: .1rem 1rem .1rem .1rem;
+  display: inline-block;
+  cursor: pointer;
+  font-size: calc(10px + .5vw);
+  text-decoration: none;
+  list-style-type: none;
+  background: transparent;
+  transition: background 3s ease;
+  margin-left: 32%;
+}
+
+.buttonCart:hover{
+    border: .5px solid black;
+    color: black;
+}
+
+/*############## Head Mobile ###################*/
+@media screen and (max-width: 1024px) {
+      .buttonCart {
+          margin-left: 15%;
+          margin-top: 2%;
+    }
+    
+    .open, .close {
+        margin: 2% 2%;
+    }
+}
+/*############## End Head Mobile ###################*/
+
+#home {
+  background: url("/assets/home/home.jpg")center no-repeat ;
+  background-size: cover;
+  height: 100%;
+}
