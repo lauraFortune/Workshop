@@ -21,7 +21,7 @@ https://aws.amazon.com/cloud9/
 
 
 ## Demos
-Click the images to view the site in action.<br>
+Click the Images to view demos of the site in action: <br><br>
 
 - Create an account, Fill Cart, Checkout & PayPal
 
