@@ -21,7 +21,7 @@ https://aws.amazon.com/cloud9/
 
 
 ## Demos
-Click the Images to view demos of the site in action: <br><br>
+Click the following Images to view demos of the site in action: <br><br>
 
 - Create an account, Fill Cart, Checkout & PayPal
 
@@ -34,7 +34,7 @@ Click the Images to view demos of the site in action: <br><br>
 
 
 ## Setting Up
-To run this application on AWS Cloud 9 complete the following steps. You can skip the final 'PayPal' step if you don't need to see transactions.
+To run this application inside an AWS Cloud9 environment complete the following instructions. You can skip the final 'PayPal' step if you don't need to see transactions.
 
 ### AWS Cloud9
 Create a free AWS Account  - https://portal.aws.amazon.com/billing/signup
