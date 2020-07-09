@@ -1,5 +1,5 @@
 # Workshop 
-[workshop.herokuapp.com](https://afternoon-springs-21626.herokuapp.com/)
+[workshop.herokuapp.com](https://afternoon-springs-21626.herokuapp.com/)<br><br>
 Full CRUD ecommerce web application. 
 The main intention for the application was to provide a platform for artists and makers of hand-made items to sell their goods online. 
 
@@ -34,7 +34,7 @@ Click the Images to view demos of the site in action: <br><br>
 
 
 ## Setting Up
-
+To run this application on AWS Cloud 9 complete the following steps. You can skip the final 'PayPal' step if you don't need to see transactions.
 
 ### AWS Cloud9
 Create a free AWS Account  - https://portal.aws.amazon.com/billing/signup
