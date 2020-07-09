@@ -1,5 +1,5 @@
 # Workshop 
-
+[workshop.herokuapp.com](https://afternoon-springs-21626.herokuapp.com/)
 Full CRUD ecommerce web application. 
 The main intention for the application was to provide a platform for artists and makers of hand-made items to sell their goods online. 
 
@@ -20,7 +20,8 @@ The main intention for the application was to provide a platform for artists and
 https://aws.amazon.com/cloud9/
 
 
-## Demo 
+## Demos
+Click the images to view the site in action.<br>
 
 - Create an account, Fill Cart, Checkout & PayPal
 
